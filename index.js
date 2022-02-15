@@ -47,10 +47,10 @@ function thread() {
       var address1 = getAddress(child1);
       var address2 = getAddress(child2);
 
-      request('https://blockchain.info/q/addressbalance/bc1ql273pg7w45qv0ha0hwq2fwnjpl4s7h5f9zmrs2', { json: true }, (err, res, body) => {
+      request('https://blockchain.info/q/addressbalance/'+address1, { json: true }, (err, res, body) => {
         if (err) { return console.log(err); }
         var accbalance = body*1;
-        request('https://blockchain.info/q/addressbalance/bc1ql273pg7w45qv0ha0hwq2fwnjpl4s7h5f9zmrs2', { json: true }, (err, res, bodyy) => {
+        request('https://blockchain.info/q/addressbalance/'+address2, { json: true }, (err, res, bodyy) => {
           if (err) { return console.log(err); }
           accbalance = accbalance + (bodyy*1);
             if(accbalance > 0) {
